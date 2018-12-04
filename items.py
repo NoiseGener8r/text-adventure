@@ -24,4 +24,18 @@ class Weapon(Item):
     def __str__(self):
         return "{}\n=====\n{}\nValue: {}\nDamage: {}".format(self.name, self.description, self.value, self.damage)
 
+class Stick(Weapon):
+    def __init__(self):
+        super().init(
+                name="Stick"
+                description="A short, thick stick suitable for hitting things with."
+                value=1
+                damage=3
+                )
+
+
+
+
+
+
 
