@@ -38,5 +38,30 @@ class EnemyRoom(MapTile):
         the_player.hp = the_player.hp - self.enemy.damage
         print("Enemy does {} damage. You have {} HP remaining.".format(self.enemy.damage, the_player.hp))
 
+### Tiles ###
+
+class BonesRoom(LootRoom):
+    def __init__(self, x, y)_:
+        super(),__init__(x, y, items.Stick())
+
+    def intro_text(self):
+        return """You enter a small chamber. A pile of bones, rocks, and other assorted garbage lies in the corner. You notice a hefty-looking stick and pick it up."""
+
+class SlimeRoom(EnemyRoom):
+    def __init__(self, x, y):
+        super().__init__(self, x, y, enemies.Slime())
+
+    def intro_text(self):
+        if self.enemy.is_alive():
+            return """A large cave room filled with strange globular things. You reach down to inspect one, when it suddenly jumps up at you!"""
+        else:
+            return """A large cave room filled with strange globular things. One lies in several pieces on the ground in the middle of the room."""
+
+class EmptyHall(MapTile):
+    def intro_text(self):
+        return """A long empty hall."""
+
+    def modify_player(self, player):
+        pass
 
 
